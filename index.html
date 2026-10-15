@@ -1,460 +1,363 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sadeq Odeh | Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        accent: '#64ffda', // A nice cyber-mint color for accents
-                        dark: '#0a192f',   // Deep navy background
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom gradient text utility */
-        .text-gradient {
-            background: linear-gradient(to right, #64ffda, #4facfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sadeq Odeh — Full-stack Developer</title>
+  <meta name="description" content="Sadeq Odeh — full-stack developer in Amman, Jordan. ASP.NET Core, React, TypeScript, PostgreSQL, and C++ systems work.">
+  <meta property="og:title" content="Sadeq Odeh — Full-stack Developer">
+  <meta property="og:description" content="Full-stack developer in Amman. .NET and React by day, C++ and Linux internals when the problem needs it.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0b0c0a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23121410'/%3E%3Cpath d='M8 10l6 6-6 6' stroke='%23c5f04a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 23h8' stroke='%23e4e1d6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-950 text-slate-300 antialiased selection:bg-teal-300 selection:text-slate-900">
+<body>
 
-    <nav class="fixed w-full z-50 top-0 py-5 px-6 md:px-12 backdrop-blur-md bg-slate-950/80 flex justify-between items-center border-b border-white/5 transition-all duration-300">
-        <a href="#" class="font-display font-bold text-xl tracking-tighter text-teal-300 hover:text-white transition-colors">
-            SADEQ ODEH.
-        </a>
+  <a class="skip" href="#ws-projects">Skip to projects</a>
 
-        <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-            <a href="#work" class="hover:text-teal-300 transition-colors">Work</a>
-            <a href="#skills" class="hover:text-teal-300 transition-colors">Skills</a>
-            <a href="#education" class="hover:text-teal-300 transition-colors">Background</a>
-            <a href="#contact" class="hover:text-teal-300 transition-colors">Contact</a>
-            
-            <a href="resume.pdf" target="_blank" class="px-4 py-2 text-teal-300 border border-teal-300 rounded hover:bg-teal-300/10 transition-colors">
-                Resume
-            </a>
-        </div>
-
-        <div class="md:hidden text-teal-300 cursor-pointer">
-            <a href="resume.pdf" class="text-xs border border-teal-300 px-3 py-2 rounded">Resume</a>
-        </div>
+  <!-- ───────── status bar ───────── -->
+  <header class="bar" role="banner">
+    <nav class="bar__ws" aria-label="Sections">
+      <a href="#ws-home" data-ws="1" class="is-active"><span>1</span><em>~</em></a>
+      <a href="#ws-projects" data-ws="2"><span>2</span><em>projects</em></a>
+      <a href="#ws-log" data-ws="3"><span>3</span><em>log</em></a>
+      <a href="#ws-stack" data-ws="4"><span>4</span><em>stack</em></a>
+      <a href="#ws-contact" data-ws="5"><span>5</span><em>contact</em></a>
     </nav>
+    <div class="bar__title" id="barTitle" aria-hidden="true">kitty — sadeq@amman:~</div>
+    <div class="bar__right">
+      <span class="bar__hint" aria-hidden="true"><kbd>1</kbd>–<kbd>5</kbd> to switch</span>
+      <span class="bar__status"><i class="dot"></i>open to work</span>
+      <span class="bar__clock" id="clock" title="Local time in Amman">AMM --:--</span>
+    </div>
+  </header>
 
-    <header class="min-h-screen flex flex-col justify-center px-6 md:px-24 max-w-7xl mx-auto pt-20">
-        <p class="font-mono text-teal-300 mb-5">Hi, my name is</p>
-        
-        <h1 class="font-display font-bold text-5xl md:text-7xl text-slate-100 mb-4 leading-tight">
-            Sadeq Odeh
-        </h1>
-        
-        <h2 class="font-display font-bold text-4xl md:text-6xl text-slate-400 mb-8">
-            I build apps for <span class="text-gradient">web & mobile.</span>
-        </h2>
-        
-        <p class="max-w-xl text-lg text-slate-400 leading-relaxed mb-12">
-            I am a professional software engineer specializing in .NET and frontend development. I build exceptional digital experiences using React Native, ASP.NET Core, and modern web technologies.
-        </p>
-        
-        <div class="flex gap-4">
-            <a href="#work" class="font-mono text-teal-300 border border-teal-300 px-8 py-4 rounded hover:bg-teal-300/10 transition-all duration-300">
-                Check out my work
-            </a>
-            <a href="https://www.linkedin.com/in/sadeqodeh" target="_blank" class="font-mono text-slate-300 border border-slate-600 px-8 py-4 rounded hover:bg-slate-800 transition-all duration-300">
-                LinkedIn
-            </a>
-        </div>
-    </header>
+  <main>
 
-    <section id="work" class="py-24 px-6 md:px-24 max-w-7xl mx-auto">
-        <div class="flex items-center mb-16">
-            <h2 class="font-display text-3xl md:text-4xl text-slate-100 font-bold mr-6"><span class="text-teal-300 font-mono text-xl mr-2">01.</span> Featured Projects</h2>
-            <div class="h-px bg-slate-700 flex-grow max-w-xs"></div>
-        </div>
+    <!-- ───────── 1 · home ───────── -->
+    <section class="ws ws--home" id="ws-home" data-ws="1" aria-label="Intro">
+      <div class="tiles tiles--home">
 
-        <article class="relative grid md:grid-cols-12 gap-4 items-center mb-24">
-            <div class="md:col-span-7 relative group">
-                <a href="https://github.com/sardeq/BoomBx" target="_blank" class="block w-full h-full relative rounded overflow-hidden border border-slate-700/50">
-                    <div class="absolute inset-0 bg-teal-900/40 mix-blend-multiply hover:bg-transparent transition-all duration-500 z-10"></div>
-                    <img src="boom_logo.png" alt="BoomBx Screenshot" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
-                </a>
+        <article class="win win--term" data-title="kitty — sadeq@amman:~">
+          <div class="win__bar"><span class="win__path">sadeq@amman:~</span><span class="win__app">kitty</span></div>
+          <div class="win__body">
+            <p class="cmd"><span class="ps1">~</span> <span class="typed" data-type="whoami">whoami</span></p>
+
+            <h1 class="banner" aria-label="Sadeq Odeh">
+<pre aria-hidden="true" class="banner__a"><b>███████</b><i>╗ </i><b>█████</b><i>╗ </i><b>██████</b><i>╗ </i><b>███████</b><i>╗ </i><b>██████</b><i>╗</i>
+<b>██</b><i>╔════╝</i><b>██</b><i>╔══</i><b>██</b><i>╗</i><b>██</b><i>╔══</i><b>██</b><i>╗</i><b>██</b><i>╔════╝</i><b>██</b><i>╔═══</i><b>██</b><i>╗</i>
+<b>███████</b><i>╗</i><b>███████</b><i>║</i><b>██</b><i>║  </i><b>██</b><i>║</i><b>█████</b><i>╗  </i><b>██</b><i>║   </i><b>██</b><i>║</i>
+<i>╚════</i><b>██</b><i>║</i><b>██</b><i>╔══</i><b>██</b><i>║</i><b>██</b><i>║  </i><b>██</b><i>║</i><b>██</b><i>╔══╝  </i><b>██</b><i>║▄▄ </i><b>██</b><i>║</i>
+<b>███████</b><i>║</i><b>██</b><i>║  </i><b>██</b><i>║</i><b>██████</b><i>╔╝</i><b>███████</b><i>╗╚</i><b>██████</b><i>╔╝</i>
+<i>╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝ ╚══▀▀═╝</i></pre>
+<pre aria-hidden="true" class="banner__b"> <b>██████</b><i>╗ </i><b>██████</b><i>╗ </i><b>███████</b><i>╗</i><b>██</b><i>╗  </i><b>██</b><i>╗</i>
+<b>██</b><i>╔═══</i><b>██</b><i>╗</i><b>██</b><i>╔══</i><b>██</b><i>╗</i><b>██</b><i>╔════╝</i><b>██</b><i>║  </i><b>██</b><i>║</i>
+<b>██</b><i>║   </i><b>██</b><i>║</i><b>██</b><i>║  </i><b>██</b><i>║</i><b>█████</b><i>╗  </i><b>███████</b><i>║</i>
+<b>██</b><i>║   </i><b>██</b><i>║</i><b>██</b><i>║  </i><b>██</b><i>║</i><b>██</b><i>╔══╝  </i><b>██</b><i>╔══</i><b>██</b><i>║</i>
+<i>╚</i><b>██████</b><i>╔╝</i><b>██████</b><i>╔╝</i><b>███████</b><i>╗</i><b>██</b><i>║  </i><b>██</b><i>║</i>
+<i> ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝</i></pre>
+            </h1>
+
+            <p class="lede">Full-stack developer in Amman. I ship web and mobile apps with <b>ASP.NET Core</b>, <b>React</b> and <b>PostgreSQL</b> — and drop down to <b>C++</b> and Linux internals when a problem needs it.</p>
+
+            <p class="cmd"><span class="ps1">~</span> fetch</p>
+            <dl class="fetch">
+              <div><dt>role</dt><dd>full-stack developer</dd></div>
+              <div><dt>backend</dt><dd>C# · ASP.NET Core · .NET 8 · Express</dd></div>
+              <div><dt>frontend</dt><dd>React · TypeScript · React Native</dd></div>
+              <div><dt>data</dt><dd>PostgreSQL · Supabase · Firebase</dd></div>
+              <div><dt>systems</dt><dd>C++ · C · Linux (NixOS daily)</dd></div>
+              <div><dt>edu</dt><dd>B.Sc. Computer Science, HTU — Feb 2027</dd></div>
+              <div><dt>locale</dt><dd>ar_JO (native) · en_US (fluent)</dd></div>
+              <div><dt>uptime</dt><dd>shipping since 2022</dd></div>
+            </dl>
+            <div class="swatches" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+            <div class="actions">
+              <a class="btn btn--primary" href="#ws-projects">./projects</a>
+              <a class="btn" href="Sadeq_Odeh_Resume_2026.pdf" target="_blank" rel="noopener">cat resume.pdf</a>
+              <a class="btn" href="mailto:sadeq_odeh@outlook.com">mail sadeq</a>
             </div>
-            <div class="md:col-span-5 md:text-right z-20 md:-ml-12">
-                <p class="font-mono text-teal-300 text-sm mb-2">Audio Tooling</p>
-                <h3 class="font-display text-2xl text-slate-100 font-bold mb-4 hover:text-teal-300 cursor-pointer">
-                    <a href="https://github.com/sardeq/BoomBx" target="_blank">BoomBx</a>
-                </h3>
-                <div class="bg-slate-800/90 p-6 rounded shadow-xl backdrop-blur-sm mb-4 border border-white/5">
-                    <p class="text-slate-400 text-sm">
-                        A cross-platform soundboard and audio router built with .NET 8. Features virtual microphone playback, VB-Cable integration, and dynamic device management.
-                    </p>
-                </div>
-                <ul class="flex flex-wrap gap-4 text-xs font-mono text-slate-400 md:justify-end mb-6">
-                    <li>.NET 8</li>
-                    <li>AvaloniaUI</li>
-                    <li>C#</li>
-                </ul>
-                <div class="flex md:justify-end gap-6 text-slate-300">
-                    <a href="https://github.com/sardeq/BoomBx" target="_blank" class="hover:text-teal-300 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-                </div>
-            </div>
+            <p class="cmd cmd--idle"><span class="ps1">~</span> <span class="cursor" aria-hidden="true"></span></p>
+          </div>
         </article>
 
-        <article class="relative grid md:grid-cols-12 gap-4 items-center mb-24">
-            <div class="md:col-span-5 z-20 md:-mr-12 md:text-left order-2 md:order-1">
-                <p class="font-mono text-teal-300 text-sm mb-2">Web Browser</p>
-                <h3 class="font-display text-2xl text-slate-100 font-bold mb-4 hover:text-teal-300 cursor-pointer">
-                    <a href="https://github.com/sardeq/Zyro-Browser" target="_blank">Zyro Browser</a>
-                </h3>
-                <div class="bg-slate-800/90 p-6 rounded shadow-xl backdrop-blur-sm mb-4 border border-white/5">
-                    <p class="text-slate-400 text-sm">
-                        Zyro is a lightweight, high-performance web browser built from scratch using C++ and WebKitGTK. It features a custom HTML/CSS-based user interface.
-                    </p>
-                </div>
-                <ul class="flex flex-wrap gap-4 text-xs font-mono text-slate-400 mb-6">
-                    <li>C++</li>
-                    <li>Browser Engine</li>
-                    <li>Open Source</li>
-                </ul>
-                <div class="flex gap-6 text-slate-300">
-                    <a href="https://github.com/sardeq/Zyro-Browser" target="_blank" class="hover:text-teal-300 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-                </div>
+        <div class="stack-col">
+          <article class="win" data-title="nvim — now.md">
+            <div class="win__bar"><span class="win__path">~/now.md</span><span class="win__app">nvim</span></div>
+            <div class="win__body md">
+              <p class="md__h"><span class="tok-h">#</span> now <span class="muted">— oct 2026</span></p>
+              <ul class="md__list">
+                <li>Building my graduation project: AI that reads Arabic + English transport documents.</li>
+                <li>Rewriting <a href="#p-zyro">Zyro</a> on the Chromium Embedded Framework.</li>
+                <li>Looking for <b>full-stack / backend</b> roles — in Amman, remote, or relocating.</li>
+              </ul>
             </div>
-            <div class="md:col-span-7 relative group order-1 md:order-2">
-                <a href="https://github.com/sardeq/Zyro-Browser" target="_blank" class="block w-full h-full relative rounded overflow-hidden border border-slate-700/50">
-                    <div class="absolute inset-0 bg-teal-900/40 mix-blend-multiply hover:bg-transparent transition-all duration-500 z-10"></div>
-                    <img src="zyro_logo.jpg" alt="Zyro Browser Screenshot" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
-                </a>
+          </article>
+
+          <article class="win" data-title="links — ~/.links">
+            <div class="win__bar"><span class="win__path">~/.links</span><span class="win__app">ls</span></div>
+            <div class="win__body">
+              <ul class="links">
+                <li><a href="https://github.com/sardeq" target="_blank" rel="noopener"><span class="lk">github</span><span class="lv">sardeq</span><span class="arr">↗</span></a></li>
+                <li><a href="https://www.linkedin.com/in/sadeq-odeh" target="_blank" rel="noopener"><span class="lk">linkedin</span><span class="lv">sadeqodeh</span><span class="arr">↗</span></a></li>
+                <li><a href="mailto:sadeq_odeh@outlook.com"><span class="lk">mail</span><span class="lv">sadeq_odeh@outlook.com</span><span class="arr">↗</span></a></li>
+                <li><a href="Sadeq_Odeh_Resume_2026.pdf" target="_blank" rel="noopener"><span class="lk">resume</span><span class="lv">resume.pdf</span><span class="arr">↓</span></a></li>
+              </ul>
             </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ───────── 2 · projects ───────── -->
+    <section class="ws" id="ws-projects" data-ws="2" aria-labelledby="h-projects">
+      <h2 class="ws__label" id="h-projects"><span>2</span> ~/projects</h2>
+      <div class="tiles tiles--projects">
+
+        <article class="win proj proj--wide" id="p-zyro" data-title="nvim — zyro/README.md">
+          <div class="win__bar"><span class="win__path">~/projects/zyro/README.md</span><span class="win__app">nvim</span></div>
+          <div class="win__body proj__body">
+            <div class="proj__text">
+              <p class="proj__meta"><span class="tag tag--warn">v1 archived</span><span class="tag tag--ok">v2 in progress</span></p>
+              <h3>Zyro Browser</h3>
+              <p class="proj__pitch">A desktop web browser written from scratch in C++. Version one ran on WebKitGTK with a custom HTML/CSS interface — and showed me exactly where a single-process design runs out of road. Version two is a rebuild on the Chromium Embedded Framework.</p>
+              <ul class="proj__points">
+                <li>Multi-process architecture, built with CMake</li>
+                <li>CEF views embedded in a GTK3 window</li>
+                <li>V8 IPC bridge between the browser UI and native code</li>
+                <li>Network request interception</li>
+              </ul>
+              <p class="chips"><span>C++</span><span>CEF</span><span>WebKitGTK</span><span>GTK3</span><span>V8</span><span>CMake</span></p>
+              <p class="proj__links"><a href="https://github.com/sardeq/Zyro-Browser-old" target="_blank" rel="noopener">source (v1) ↗</a></p>
+            </div>
+            <figure class="shot">
+              <img src="zyro_logo.png" alt="Zyro Browser new-tab page showing a search box and live CPU and RAM usage widgets" loading="lazy" width="1890" height="993">
+              <figcaption>zyro — new tab, with live CPU / RAM readout</figcaption>
+            </figure>
+          </div>
         </article>
 
-        <div class="mb-16">
-            <h3 class="font-display text-2xl text-slate-100 font-bold mb-8 flex items-center">
-                <span class="text-teal-300 font-mono text-lg mr-2">▹</span> Educational Projects
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                
-                <div class="bg-slate-800/50 p-6 rounded border border-white/5 hover:border-teal-300/50 hover:-translate-y-1 transition-all duration-300 group">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-teal-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                        </div>
-                        <a href="#" class="text-slate-400 hover:text-teal-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                        </a>
-                    </div>
-                    <h4 class="font-display text-lg font-bold text-slate-100 mb-2 group-hover:text-teal-300 transition-colors">OS Algo Simulation</h4>
-                    <p class="text-slate-400 text-sm mb-4">
-                        A visual simulation of Operating System algorithms including CPU scheduling (Round Robin, FCFS) and Page Replacement (LRU, FIFO).
-                    </p>
-                    <ul class="font-mono text-xs text-slate-500 flex gap-3 mt-auto">
-                        <li>Python</li>
-                        <li>Tkinter</li>
-                        <li>CS Theory</li>
-                    </ul>
-                </div>
+        <article class="win proj" id="p-boombx" data-title="nvim — boombx/README.md">
+          <div class="win__bar"><span class="win__path">~/projects/boombx/README.md</span><span class="win__app">nvim</span></div>
+          <div class="win__body">
+            <p class="proj__meta"><span class="tag">desktop · audio</span></p>
+            <h3>BoomBx</h3>
+            <p class="proj__pitch">A soundboard and audio router. It plays clips through a virtual microphone, so they land in any voice chat or call.</p>
+            <ul class="proj__points">
+              <li>Low-latency WASAPI playback</li>
+              <li>Virtual mic via VB-Cable</li>
+              <li>Audio format conversion and hot-plug device handling</li>
+              <li>MVVM UI in AvaloniaUI</li>
+            </ul>
+            <p class="chips"><span>C#</span><span>.NET 8</span><span>AvaloniaUI</span><span>WASAPI</span></p>
+            <p class="proj__links"><a href="https://github.com/sardeq/BoomBx" target="_blank" rel="noopener">source ↗</a></p>
+          </div>
+        </article>
 
-                <div class="bg-slate-800/50 p-6 rounded border border-white/5 hover:border-teal-300/50 hover:-translate-y-1 transition-all duration-300 group">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-teal-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                        </div>
-                        <a href="#" class="text-slate-400 hover:text-teal-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                        </a>
-                    </div>
-                    <h4 class="font-display text-lg font-bold text-slate-100 mb-2 group-hover:text-teal-300 transition-colors">Library Database</h4>
-                    <p class="text-slate-400 text-sm mb-4">
-                        Full-stack library management system featuring student borrowing history, fine calculation, and admin dashboard for inventory.
-                    </p>
-                    <ul class="font-mono text-xs text-slate-500 flex gap-3 mt-auto">
-                        <li>SQL</li>
-                        <li>PHP</li>
-                        <li>Bootstrap</li>
-                    </ul>
-                </div>
+        <article class="win proj" id="p-grad" data-title="nvim — graduation/README.md">
+          <div class="win__bar"><span class="win__path">~/projects/graduation/README.md</span><span class="win__app">nvim</span></div>
+          <div class="win__body">
+            <p class="proj__meta"><span class="tag tag--ok">in progress · 2026–27</span></p>
+            <h3>Transport Document Digitization</h3>
+            <p class="proj__pitch">My graduation project: an AI platform that reads transport documents in Arabic and English and turns them into structured, searchable data.</p>
+            <ul class="proj__points">
+              <li>OCR for bilingual, mixed-direction documents</li>
+              <li>Team of three — two on the models, me on the full stack around them</li>
+            </ul>
+            <p class="chips"><span>AI / OCR</span><span>Arabic + English</span><span>full-stack</span></p>
+            <p class="proj__links"><span class="muted">private — in development</span></p>
+          </div>
+        </article>
 
-                <div class="bg-slate-800/50 p-6 rounded border border-white/5 hover:border-teal-300/50 hover:-translate-y-1 transition-all duration-300 group">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-teal-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                        </div>
-                    </div>
-                    <h4 class="font-display text-lg font-bold text-slate-100 mb-2 group-hover:text-teal-300 transition-colors">Compiler Lexer</h4>
-                    <p class="text-slate-400 text-sm mb-4">
-                        A lexical analyzer built from scratch to parse custom syntax, identify tokens, and generate symbol tables for a custom language.
-                    </p>
-                    <ul class="font-mono text-xs text-slate-500 flex gap-3 mt-auto">
-                        <li>C++</li>
-                        <li>Regex</li>
-                        <li>Parsing</li>
-                    </ul>
-                </div>
+        <article class="win proj" id="p-workmint" data-title="nvim — workmint/README.md">
+          <div class="win__bar"><span class="win__path">~/projects/workmint/README.md</span><span class="win__app">nvim</span></div>
+          <div class="win__body">
+            <p class="proj__meta"><span class="tag">web · marketplace</span></p>
+            <h3>Workmint</h3>
+            <p class="proj__pitch">A freelance marketplace that covers the whole job: freelancers list services, clients order, admins approve — with revisions and escrow payments built in.</p>
+            <ul class="proj__points">
+              <li>Three roles: admin, freelancer, client</li>
+              <li>Escrow calculator with live currency conversion</li>
+              <li>No mock data — every screen reads from PostgreSQL</li>
+            </ul>
+            <p class="chips"><span>React</span><span>React Router</span><span>Express</span><span>PostgreSQL</span></p>
+            <p class="proj__links"><a href="https://github.com/sardeq/workmint-frontend" target="_blank" rel="noopener">frontend ↗</a><a href="https://github.com/sardeq/workmint-backend" target="_blank" rel="noopener">backend ↗</a></p>
+          </div>
+        </article>
 
-            </div>
-        </div>
-
+      </div>
     </section>
 
-    <section id="clients" class="py-12 px-6 md:px-24 max-w-5xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="font-display text-3xl text-slate-100 font-bold mb-4">Noteworthy Projects</h2>
-            <p class="text-teal-300 font-mono text-sm">Client Work & Archives</p>
-        </div>
-
-        <div class="relative overflow-x-auto">
-            <table class="w-full text-left text-sm text-slate-400">
-                <thead class="text-xs uppercase bg-transparent text-slate-200 font-display">
-                    <tr class="border-b border-slate-700">
-                        <th scope="col" class="px-6 py-4">Year</th>
-                        <th scope="col" class="px-6 py-4">Project</th>
-                        <th scope="col" class="px-6 py-4 hidden md:table-cell">Context</th>
-                        <th scope="col" class="px-6 py-4 hidden md:table-cell">Built with</th>
-                        <th scope="col" class="px-6 py-4">Link</th>
-                    </tr>
-                </thead>
-                <tbody class="font-mono">
-                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors group">
-                        <td class="px-6 py-6 text-teal-300">2025</td>
-                        <td class="px-6 py-6 font-bold text-slate-100 text-base">ANU Registration System</td>
-                        <td class="px-6 py-6 hidden md:table-cell">Freelance</td>
-                        <td class="px-6 py-6 hidden md:table-cell">
-                            <span class="mr-2">AI Integration</span>
-                            <span class="mr-2">Supabase</span>
-                        </td>
-                        <td class="px-6 py-6">
-                            <a href="https://github.com/sardeq/AJU-RegSystem" target="_blank" class="text-slate-400 group-hover:text-teal-300 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
-                        </td>
-                    </tr>
-                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors group">
-                        <td class="px-6 py-6 text-teal-300">2024</td>
-                        <td class="px-6 py-6 font-bold text-slate-100 text-base">IndoArabi</td>
-                        <td class="px-6 py-6 hidden md:table-cell">Freelance</td>
-                        <td class="px-6 py-6 hidden md:table-cell">
-                            <span class="mr-2">React Native</span>
-                            <span class="mr-2">Supabase</span>
-                        </td>
-                        <td class="px-6 py-6"><span class="text-xs text-slate-500">Private</span></td>
-                    </tr>
-                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors group">
-                        <td class="px-6 py-6 text-teal-300">2024</td>
-                        <td class="px-6 py-6 font-bold text-slate-100 text-base">Tawtheeq</td>
-                        <td class="px-6 py-6 hidden md:table-cell">Crown Prince Award</td>
-                        <td class="px-6 py-6 hidden md:table-cell">
-                            <span class="mr-2">React Native</span>
-                            <span class="mr-2">Expo</span>
-                        </td>
-                        <td class="px-6 py-6"><span class="text-xs text-slate-500">Private</span></td>
-                    </tr>
-                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition-colors group">
-                        <td class="px-6 py-6 text-teal-300">2023</td>
-                        <td class="px-6 py-6 font-bold text-slate-100 text-base">Mudawaneh</td>
-                        <td class="px-6 py-6 hidden md:table-cell">Freelance</td>
-                        <td class="px-6 py-6 hidden md:table-cell">
-                            <span class="mr-2">JavaScript</span>
-                            <span class="mr-2">Firebase</span>
-                        </td>
-                        <td class="px-6 py-6">
-                            <a href="https://mudawaneh.web.app/" target="_blank" class="text-slate-400 group-hover:text-teal-300 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <!-- ───────── 3 · log ───────── -->
+    <section class="ws" id="ws-log" data-ws="3" aria-labelledby="h-log">
+      <h2 class="ws__label" id="h-log"><span>3</span> git log --graph</h2>
+      <div class="tiles">
+        <article class="win" data-title="git — log --graph career">
+          <div class="win__bar"><span class="win__path">~/career</span><span class="win__app">git log</span></div>
+          <div class="win__body">
+            <p class="cmd"><span class="ps1">~/career</span> git log --graph --oneline <span class="muted">main community</span></p>
+            <ol class="log">
+              <li class="log__item log__item--head">
+                <span class="log__hash">a3f9c21</span>
+                <span class="log__refs"><span class="ref ref--head">HEAD → main</span></span>
+                <span class="log__date">2025 — 2026</span>
+                <h3 class="log__title">University Registration System <span class="muted">· contract</span></h3>
+                <p class="log__msg">Registration platform for a university, built under contract. Supabase backend with AI-assisted features.</p>
+                <p class="log__links"><a href="https://github.com/sardeq/AJU-RegSystem" target="_blank" rel="noopener">repo ↗</a></p>
+              </li>
+              <li class="log__item">
+                <span class="log__hash">7be04d8</span>
+                <span class="log__date">02/2025 — 10/2025</span>
+                <h3 class="log__title">Product Development Trainee <span class="muted">· ITG, Amman</span></h3>
+                <p class="log__msg">Built, tested and debugged ASP.NET applications across Web Forms, MVC and .NET Core; Web APIs and services; data access with ADO.NET and Entity Framework.</p>
+              </li>
+              <li class="log__item">
+                <span class="log__hash">c41e6a0</span>
+                <span class="log__date">10/2024 — 12/2024</span>
+                <h3 class="log__title">IndoArabi <span class="muted">· freelance</span></h3>
+                <p class="log__msg">Arabic-learning app for Indonesian students, built for an Arabic professor to publish. React Native (Expo, TypeScript) and Supabase.</p>
+              </li>
+              <li class="log__item">
+                <span class="log__hash">58d2f17</span>
+                <span class="log__refs"><span class="ref ref--tag">tag: crown-prince-award</span></span>
+                <span class="log__date">08/2024 — 12/2024</span>
+                <h3 class="log__title">Tawtheeq <span class="muted">· startup project</span></h3>
+                <p class="log__msg">Legal-debt management app connected with the Ministry of Justice. React Native, Expo and Supabase.</p>
+              </li>
+              <li class="log__item log__item--branch">
+                <span class="log__lane" aria-hidden="true"></span>
+                <span class="log__hash">e902b3c</span>
+                <span class="log__refs"><span class="ref ref--branch">community</span></span>
+                <span class="log__date">2024</span>
+                <h3 class="log__title">IEEEXtreme Ambassador &amp; Organizer · ACM Event Manager</h3>
+                <p class="log__msg">Organized the 24-hour IEEEXtreme competition in Jordan with the IEEE student club; ran events and technical training for ACM; volunteered with the IEEE Jordan Section.</p>
+              </li>
+              <li class="log__item">
+                <span class="log__hash">1d7a9e4</span>
+                <span class="log__date">06/2023 — 01/2024</span>
+                <h3 class="log__title">Game Developer <span class="muted">· Jam3et Games</span></h3>
+                <p class="log__msg">Idle card game for mobile in Unity (C#), planned and built with a team over eight months.</p>
+              </li>
+              <li class="log__item log__item--root">
+                <span class="log__hash">0f3b5c2</span>
+                <span class="log__refs"><span class="ref ref--tag">root commit</span></span>
+                <span class="log__date">08/2022 — 12/2022</span>
+                <h3 class="log__title">Mudawaneh <span class="muted">· freelance</span></h3>
+                <p class="log__msg">Library and reading site for a book author to share his work. JavaScript and Firebase.</p>
+                <p class="log__links"><a href="https://mudawaneh.web.app/" target="_blank" rel="noopener">live ↗</a></p>
+              </li>
+            </ol>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section id="skills" class="py-24 px-6 md:px-24 max-w-7xl mx-auto">
-        <div class="flex items-center mb-16">
-            <h2 class="font-display text-3xl md:text-4xl text-slate-100 font-bold mr-6"><span class="text-teal-300 font-mono text-xl mr-2">02.</span> Technical Skills</h2>
-            <div class="h-px bg-slate-700 flex-grow max-w-xs"></div>
-        </div>
+    <!-- ───────── 4 · stack ───────── -->
+    <section class="ws" id="ws-stack" data-ws="4" aria-labelledby="h-stack">
+      <h2 class="ws__label" id="h-stack"><span>4</span> ~/.config</h2>
+      <div class="tiles tiles--stack">
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div class="bg-slate-800/50 p-8 rounded border border-white/5 hover:-translate-y-2 transition-transform duration-300">
-                <div class="text-teal-300 mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                </div>
-                <h3 class="font-display text-xl font-bold text-slate-100 mb-4">Frontend & Mobile</h3>
-                <ul class="font-mono text-sm space-y-2 text-slate-400">
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> React Native</li>
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> ReactJS</li>
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> Avalonia UI</li>
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> TypeScript / JS</li>
-                </ul>
-            </div>
+        <article class="win" data-title="nvim — stack.toml">
+          <div class="win__bar"><span class="win__path">~/.config/stack.toml</span><span class="win__app">nvim</span></div>
+          <div class="win__body">
+<pre class="code"><code><span class="ln"></span><span class="c"># what I reach for, roughly in order</span>
+<span class="ln"></span><span class="s">[backend]</span>
+<span class="ln"></span><span class="k">daily</span>    = [<span class="v">"C#"</span>, <span class="v">"ASP.NET Core"</span>, <span class="v">".NET 8"</span>, <span class="v">"Entity Framework"</span>]
+<span class="ln"></span><span class="k">also</span>     = [<span class="v">"Node.js"</span>, <span class="v">"Express"</span>, <span class="v">"ADO.NET"</span>]
+<span class="ln"></span>
+<span class="ln"></span><span class="s">[frontend]</span>
+<span class="ln"></span><span class="k">web</span>      = [<span class="v">"React"</span>, <span class="v">"TypeScript"</span>, <span class="v">"JavaScript"</span>]
+<span class="ln"></span><span class="k">mobile</span>   = [<span class="v">"React Native"</span>, <span class="v">"Expo"</span>]
+<span class="ln"></span><span class="k">desktop</span>  = [<span class="v">"AvaloniaUI"</span>]
+<span class="ln"></span>
+<span class="ln"></span><span class="s">[data]</span>
+<span class="ln"></span><span class="k">sql</span>      = [<span class="v">"PostgreSQL"</span>, <span class="v">"Oracle PL/SQL"</span>]
+<span class="ln"></span><span class="k">platform</span> = [<span class="v">"Supabase"</span>, <span class="v">"Firebase"</span>]
+<span class="ln"></span>
+<span class="ln"></span><span class="s">[systems]</span>
+<span class="ln"></span><span class="k">lang</span>     = [<span class="v">"C++"</span>, <span class="v">"C"</span>]
+<span class="ln"></span><span class="k">topics</span>   = [<span class="v">"multi-process"</span>, <span class="v">"IPC"</span>, <span class="v">"threads"</span>, <span class="v">"sockets"</span>]
+<span class="ln"></span><span class="k">os</span>       = <span class="v">"NixOS"</span>  <span class="c"># daily driver, riced</span>
+<span class="ln"></span>
+<span class="ln"></span><span class="s">[elsewhere]</span>
+<span class="ln"></span><span class="k">games</span>    = [<span class="v">"Unity"</span>, <span class="v">"C#"</span>]
+<span class="ln"></span><span class="k">tools</span>    = [<span class="v">"Git"</span>, <span class="v">"CMake"</span>, <span class="v">"Linux"</span>]</code></pre>
+          </div>
+        </article>
 
-            <div class="bg-slate-800/50 p-8 rounded border border-white/5 hover:-translate-y-2 transition-transform duration-300">
-                <div class="text-teal-300 mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                </div>
-                <h3 class="font-display text-xl font-bold text-slate-100 mb-4">Backend & Core</h3>
-                <ul class="font-mono text-sm space-y-2 text-slate-400">
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> ASP.NET Core</li>
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> C# / .NET 8</li>
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> SQL / PostgreSQL</li>
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> C++</li>
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> Supabase / Firebase</li>
-                </ul>
-            </div>
+        <article class="win" data-title="nvim — education.md">
+          <div class="win__bar"><span class="win__path">~/education.md</span><span class="win__app">nvim</span></div>
+          <div class="win__body md">
+            <p class="md__h"><span class="tok-h">#</span> B.Sc. Computer Science</p>
+            <p>Al Hussein Technical University <span class="muted">(Pearson BTEC)</span><br><span class="muted">Amman · expected Feb 2027</span></p>
+            <p class="muted small">coursework → data structures &amp; algorithms, operating systems, systems analysis &amp; design, databases</p>
 
-            <div class="bg-slate-800/50 p-8 rounded border border-white/5 hover:-translate-y-2 transition-transform duration-300">
-                <div class="text-teal-300 mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-                </div>
-                <h3 class="font-display text-xl font-bold text-slate-100 mb-4">Tools</h3>
-                <ul class="font-mono text-sm space-y-2 text-slate-400">
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> Git & GitHub</li>
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> Unity (Game Dev)</li>
-                    <li class="flex items-center"><span class="text-teal-300 mr-2">▹</span> Expo</li>
-                </ul>
-            </div>
-            
-        </div>
+            <p class="md__h"><span class="tok-h">##</span> certifications</p>
+            <ul class="md__list">
+              <li>Full-stack Development (React) <span class="muted">— HTU, 2023</span></li>
+              <li>Red Hat Application Development I: Programming in Java <span class="muted">— 2024</span></li>
+            </ul>
+
+            <p class="md__h"><span class="tok-h">##</span> clubs</p>
+            <ul class="md__list">
+              <li>ACM — Event Manager &amp; Technical Trainer</li>
+              <li>IEEE — IEEEXtreme Ambassador</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
     </section>
 
-    <section id="education" class="py-24 px-6 md:px-24 max-w-4xl mx-auto">
-        <div class="flex items-center mb-12">
-            <h2 class="font-display text-3xl md:text-4xl text-slate-100 font-bold mr-6"><span class="text-teal-300 font-mono text-xl mr-2">03.</span> Background</h2>
-            <div class="h-px bg-slate-700 flex-grow max-w-xs"></div>
-        </div>
+    <!-- ───────── 5 · contact ───────── -->
+    <section class="ws" id="ws-contact" data-ws="5" aria-labelledby="h-contact">
+      <h2 class="ws__label" id="h-contact"><span>5</span> contact</h2>
+      <div class="tiles tiles--contact">
 
-        <div class="grid md:grid-cols-2 gap-12">
-            
-            <div>
-                <h3 class="font-display text-xl text-slate-200 font-bold mb-6 flex items-center">
-                    <svg class="w-5 h-5 text-teal-300 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
-                    Education
-                </h3>
-                
-                <div class="relative border-l border-slate-700 pl-6 pb-6 space-y-8">
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-teal-300 ring-4 ring-slate-900"></span>
-                        <h4 class="text-lg font-bold text-slate-100">Bachelor's in Computer Science</h4>
-                        <p class="text-teal-300 font-mono text-sm mb-2">Al Hussein Technical University • 2022 - 2026</p>
-                    </div>
-
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-slate-600 ring-4 ring-slate-900"></span>
-                        <h4 class="text-lg font-bold text-slate-100">High School</h4>
-                        <p class="text-teal-300 font-mono text-sm mb-2">Pioneers Academy • 2022</p>
-                    </div>
-                </div>
+        <article class="win win--term" data-title="kitty — sh">
+          <div class="win__bar"><span class="win__path">sadeq@amman:~ — interactive</span><span class="win__app">sh</span></div>
+          <div class="win__body shell" id="shell">
+            <div class="shell__out" id="shellOut" aria-live="polite">
+              <p class="muted">zsh-ish 0.1 — type <b class="acc">help</b> and press enter. tab completes, ↑ recalls.</p>
             </div>
+            <form class="shell__in" id="shellForm" autocomplete="off">
+              <label for="shellInput" class="ps1">~</label>
+              <input id="shellInput" type="text" spellcheck="false" autocapitalize="off" aria-label="Terminal command">
+            </form>
+          </div>
+        </article>
 
-            <div>
-                <h3 class="font-display text-xl text-slate-200 font-bold mb-6 flex items-center">
-                    <svg class="w-5 h-5 text-teal-300 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
-                    Certifications & Awards
-                </h3>
+        <article class="win win--hello" data-title="mail — new message">
+          <div class="win__bar"><span class="win__path">new message</span><span class="win__app">mail</span></div>
+          <div class="win__body">
+            <p class="hello">Hiring, building something, or just want to talk shop?</p>
+            <p class="muted">Email is the fastest way to reach me.</p>
+            <a class="btn btn--primary btn--big" href="mailto:sadeq_odeh@outlook.com">sadeq_odeh@outlook.com</a>
+            <p class="actions actions--tight">
+              <a class="btn" href="https://www.linkedin.com/in/sadeq-odeh" target="_blank" rel="noopener">linkedin ↗</a>
+              <a class="btn" href="https://github.com/sardeq" target="_blank" rel="noopener">github ↗</a>
+              <a class="btn" href="Sadeq_Odeh_Resume_2026.pdf" target="_blank" rel="noopener">resume ↓</a>
+            </p>
+          </div>
+        </article>
 
-                <ul class="space-y-4">
-                    <li class="bg-slate-800/30 p-4 rounded border border-white/5 flex gap-4 items-start hover:bg-slate-800/50 transition-colors">
-                        <div class="mt-1 text-teal-300">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                        </div>
-                        <div>
-                            <h5 class="font-bold text-slate-100 text-sm">Full-stack Development Course</h5>
-                            <p class="text-xs font-mono text-teal-300 mb-1">HTU • 2023</p>
-                            <p class="text-slate-400 text-xs">Professional certification in Full-stack development in ReactJS.</p>
-                        </div>
-                    </li>
-                    
-                    <li class="bg-slate-800/30 p-4 rounded border border-white/5 flex gap-4 items-start hover:bg-slate-800/50 transition-colors">
-                        <div class="mt-1 text-teal-300">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                        </div>
-                        <div>
-                            <h5 class="font-bold text-slate-100 text-sm">Redhat Application Development I: Programming in Java</h5>
-                            <p class="text-xs font-mono text-teal-300 mb-1">Redhat • 2024</p>
-                            <p class="text-slate-400 text-xs">Introductory, hands-on course that teaches core Java and object-oriented programming concepts for building maintainable enterprise applications.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
+      </div>
     </section>
 
-    <section id="testimonials" class="py-24 px-6 md:px-24 max-w-7xl mx-auto bg-gradient-to-b from-transparent to-slate-900/50">
-        <div class="text-center mb-16">
-            <h2 class="font-display text-3xl text-slate-100 font-bold mb-4"><span class="text-teal-300 font-mono text-xl mr-2">04.</span> What People Say</h2>
-            <p class="text-slate-400 max-w-lg mx-auto">Feedback from professors, teammates, and clients I've worked with.</p>
-        </div>
+  </main>
 
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="p-8 rounded bg-slate-800/30 border border-teal-900/30 relative">
-                <div class="text-teal-300 text-4xl font-serif absolute top-4 left-6 opacity-30">“</div>
-                <p class="text-slate-300 italic mb-6 relative z-10 pt-4">
-                    Sadeq demonstrated exceptional problem-solving skills during his internship. His ability to architect the backend using .NET was crucial to our success.
-                </p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-teal-300 font-bold font-display">DR</div>
-                    <div>
-                        <h5 class="text-sm font-bold text-slate-100">Raed Ayyad</h5>
-                        <p class="text-xs font-mono text-slate-500">Supervisor at ITG</p>
-                    </div>
-                </div>
-            </div>
+  <footer class="foot">
+    <span>© 2026 Sadeq Odeh</span>
+    <span class="muted">hand-written HTML, CSS &amp; JS — no frameworks</span>
+    <a href="https://github.com/sardeq/Portfolio" target="_blank" rel="noopener">view source ↗</a>
+  </footer>
 
-            <div class="p-8 rounded bg-slate-800/30 border border-teal-900/30 relative">
-                <div class="text-teal-300 text-4xl font-serif absolute top-4 left-6 opacity-30">“</div>
-                <p class="text-slate-300 italic mb-6 relative z-10 pt-4">
-                    Delivered the IndoArabi app ahead of schedule with clean code and great UI. Communication was transparent throughout the entire freelance Process.
-                </p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-teal-300 font-bold font-display">MA</div>
-                    <div>
-                        <h5 class="text-sm font-bold text-slate-100">IndoArabi Customer</h5>
-                        <p class="text-xs font-mono text-slate-500">Arabic Professor</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24 px-6 md:px-24 max-w-4xl mx-auto text-center mb-12">
-        <p class="font-mono text-teal-300 mb-4">05. What's Next?</p>
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-100 mb-6">Get In Touch</h2>
-        
-        <p class="text-slate-400 text-lg leading-relaxed mb-12 max-w-xl mx-auto">
-            I am currently open to new opportunities and collaborations. Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!
-        </p>
-        
-        <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <a href="mailto:sadeq_odeh@outlook.com" class="font-mono text-teal-300 border border-teal-300 px-8 py-4 rounded hover:bg-teal-300/10 transition-all duration-300">
-                Say Hello
-            </a>
-
-            <a href="https://www.linkedin.com/in/sadeqodeh" target="_blank" class="font-mono text-slate-300 border border-slate-600 px-8 py-4 rounded hover:bg-slate-800 transition-all duration-300">
-                Connect on LinkedIn
-            </a>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center text-slate-400 text-sm font-mono flex justify-center gap-6">
-        <a href="https://github.com/sardeq" target="_blank" rel="noreferrer" class="hover:text-teal-300 transition-colors">
-            GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/sadeqodeh" target="_blank" rel="noreferrer" class="hover:text-teal-300 transition-colors">
-            LinkedIn
-        </a>
-    </footer>
-
+  <script src="script.js" defer></script>
 </body>
 </html>
