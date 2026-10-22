@@ -13,8 +13,7 @@
     timeZone: "Asia/Amman", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false,
   });
   const tick = () => { clock.textContent = "AMM " + fmt.format(new Date()).replace(",", ""); };
-  tick();
-  setInterval(tick, 15000);
+  if (clock) { tick(); setInterval(tick, 15000); }
 
   /* ── window open animation ── */
   const wins = $$(".win");
@@ -41,7 +40,7 @@
     focused && focused.classList.remove("is-focus");
     focused = w;
     w.classList.add("is-focus");
-    barTitle.textContent = w.dataset.title || "";
+    if (barTitle) barTitle.textContent = w.dataset.title || "";
   };
   focusWin($(".win"));
 
@@ -50,8 +49,8 @@
 
   /* ── active workspace + scroll focus ── */
   const wsLinks = $$(".bar__ws a");
-  const sections = $$(".ws");
-  let currentWs = "1";
+  const sections = $$(".ws[data-ws]");
+  let currentWs = null;
   const setWs = n => {
     if (n === currentWs) return;
     currentWs = n;
@@ -63,10 +62,12 @@
     ticking = false;
     const mid = innerHeight * 0.42;
     // workspace = last section whose top passed the 42% line
-    let ws = sections[0];
-    for (const s of sections) if (s.getBoundingClientRect().top <= mid) ws = s;
-    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) ws = sections[sections.length - 1];
-    setWs(ws.dataset.ws);
+    if (sections.length) {
+      let ws = sections[0];
+      for (const s of sections) if (s.getBoundingClientRect().top <= mid) ws = s;
+      if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) ws = sections[sections.length - 1];
+      setWs(ws.dataset.ws);
+    }
 
     // on touch devices, focus the window closest to the reading line
     if (!hoverable) {
@@ -84,17 +85,23 @@
   addEventListener("resize", onScroll);
   onScroll();
 
-  /* ── keyboard: 1–5 switch workspace ── */
+  /* ── keyboard: 1–6 switch workspace (6 = demos page) ── */
+  const input = $("#shellInput");
   addEventListener("keydown", e => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     const t = e.target;
     if (t.matches && t.matches("input, textarea, [contenteditable]")) return;
-    if (/^[1-5]$/.test(e.key)) {
+    if (/^[1-6]$/.test(e.key)) {
       const s = $(`.ws[data-ws="${e.key}"]`);
-      if (s) { e.preventDefault(); s.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }); }
+      const link = $(`.bar__ws a[data-ws="${e.key}"]`);
+      e.preventDefault();
+      if (s) s.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      else if (link) location.href = link.href;   // workspace lives on the other page
     } else if (e.key === "/" || e.key === ":") {
       e.preventDefault();
-      $("#ws-contact").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      const contact = $("#ws-contact");
+      if (!contact || !input) { location.href = "index.html#ws-contact"; return; }
+      contact.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
       setTimeout(() => input.focus({ preventScroll: true }), reduceMotion ? 0 : 450);
     }
   });
@@ -117,7 +124,7 @@
   /* ── interactive shell ── */
   const out = $("#shellOut");
   const form = $("#shellForm");
-  const input = $("#shellInput");
+  if (!out || !form || !input) return;   // no shell on this page (e.g. demos.html)
   const history = [];
   let hIdx = 0;
 
@@ -147,6 +154,7 @@
   <span class="acc">whoami</span>        who is this
   <span class="acc">ls</span>            list projects
   <span class="acc">open</span> &lt;name&gt;   jump to a project  (zyro, boombx, grad, workmint)
+  <span class="acc">demos</span>         watch video demos
   <span class="acc">log</span>           work history
   <span class="acc">stack</span>         what I build with
   <span class="acc">resume</span>        open resume.pdf
@@ -160,12 +168,17 @@ drwxr-xr-x  <span class="acc">boombx/</span>     .NET 8 soundboard + audio route
 drwxr-x---  <span class="acc">grad/</span>       AI transport-document digitization
 drwxr-xr-x  <span class="acc">workmint/</span>   React + Express freelance marketplace
 
-try: <span class="acc">open zyro</span>`),
+try: <span class="acc">open zyro</span> · or <span class="acc">demos</span> to watch them`),
     open: arg => {
       const key = (arg || "").replace(/\/$/, "").toLowerCase();
       if (!key) return print("usage: open &lt;zyro|boombx|grad|workmint&gt;", "err");
       if (projects[key]) { print(`opening ${esc(key)}…`, "muted"); jump(projects[key]); }
       else print(`open: ${esc(key)}: no such project`, "err");
+    },
+    demos: arg => {
+      const k = (arg || "").replace(/\/$/, "").toLowerCase();
+      print("mpv --playlist=~/demos/*.mp4", "muted");
+      setTimeout(() => { location.href = "demos.html" + (k ? "#" + encodeURIComponent(k) : ""); }, 350);
     },
     log: () => { print("checking out ~/career…", "muted"); jump("ws-log"); },
     stack: () => { print("cat ~/.config/stack.toml", "muted"); jump("ws-stack"); },
@@ -185,12 +198,14 @@ try: <span class="acc">open zyro</span>`),
       const k = (arg || "").replace(/^~?\/?/, "").replace(/\/$/, "").toLowerCase();
       if (projects[k]) return commands.open(k);
       if (k === "projects") return jump("ws-projects");
+      if (k === "demos") return commands.demos();
       if (!k) return jump("ws-home");
       print(`cd: ${esc(arg)}: no such directory`, "err");
     },
   };
   commands.cat = arg => (/resume/.test(arg || "") ? commands.resume() : /stack/.test(arg || "") ? commands.stack() : print(`cat: ${esc(arg || "")}: try <span class="acc">ls</span>`, "err"));
   commands.projects = () => jump("ws-projects");
+  commands.mpv = commands.demo = commands.demos;
   commands.email = commands.mail;
   commands.contact = commands.mail;
   commands.experience = commands.log;

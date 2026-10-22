@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demos — Sadeq Odeh</title>
+  <meta name="description" content="Video walkthroughs of projects by Sadeq Odeh — Zyro Browser, BoomBx, Workmint and more.">
+  <meta property="og:title" content="Demos — Sadeq Odeh">
+  <meta property="og:description" content="Short video walkthroughs of the systems I've built.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0b0c0a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23121410'/%3E%3Cpath d='M8 10l6 6-6 6' stroke='%23c5f04a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 23h8' stroke='%23e4e1d6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="demos.css">
+</head>
+<body class="page-demos">
+
+  <a class="skip" href="#player">Skip to player</a>
+
+  <!-- ───────── status bar ───────── -->
+  <header class="bar" role="banner">
+    <nav class="bar__ws" aria-label="Sections">
+      <a href="index.html#ws-home" data-ws="1"><span>1</span><em>~</em></a>
+      <a href="index.html#ws-projects" data-ws="2"><span>2</span><em>projects</em></a>
+      <a href="index.html#ws-log" data-ws="3"><span>3</span><em>log</em></a>
+      <a href="index.html#ws-stack" data-ws="4"><span>4</span><em>stack</em></a>
+      <a href="index.html#ws-contact" data-ws="5"><span>5</span><em>contact</em></a>
+      <a href="demos.html" data-ws="6" class="is-active" aria-current="page"><span>6</span><em>demos</em></a>
+    </nav>
+    <div class="bar__title" id="barTitle" aria-hidden="true">mpv — ~/demos</div>
+    <div class="bar__right">
+      <span class="bar__hint" aria-hidden="true"><kbd>space</kbd> play · <kbd>f</kbd> full · <kbd>n</kbd> next</span>
+      <span class="bar__status"><i class="dot"></i>open to work</span>
+      <span class="bar__clock" id="clock" title="Local time in Amman">AMM --:--</span>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="ws ws--demos" id="ws-demos" data-ws="6" aria-labelledby="h-demos">
+      <h2 class="ws__label" id="h-demos"><span>6</span> ~/demos <em class="ws__sub">mpv --playlist=*.mp4</em></h2>
+
+      <div class="tiles tiles--demos">
+
+        <!-- player -->
+        <article class="win player" id="player" data-title="mpv — ~/demos" aria-label="Video player">
+          <div class="win__bar">
+            <span class="win__path" id="playerPath">~/demos/</span>
+            <span class="win__app">mpv</span>
+          </div>
+
+          <div class="stage" id="stage" data-state="empty" tabindex="-1">
+            <video id="video" playsinline preload="metadata"></video>
+
+            <!-- shown until a video file is set for this demo -->
+            <div class="stage__empty" id="stageEmpty">
+              <div class="stage__poster" id="emptyPoster" aria-hidden="true"></div>
+              <div class="stage__emptyBody">
+                <p class="rec"><i></i>rec</p>
+                <p class="stage__emptyTitle">Demo coming soon</p>
+                <p class="stage__emptyText" id="emptyText">I'm recording a walkthrough of this project.</p>
+                <p class="actions" id="emptyLinks"></p>
+              </div>
+            </div>
+
+            <div class="stage__error" id="stageError" hidden>
+              <p class="err-line">mpv: <span id="errText">failed to open file</span></p>
+            </div>
+
+            <button class="stage__big" id="bigPlay" type="button" aria-label="Play">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+            </button>
+
+            <div class="stage__spin" id="spin" aria-hidden="true">⠋</div>
+
+            <div class="osd" id="osd" aria-live="polite"></div>
+
+            <!-- end of video -->
+            <div class="stage__end" id="stageEnd">
+              <div class="end">
+                <p class="end__label">end of file</p>
+                <div class="end__actions">
+                  <button class="btn" id="replayBtn" type="button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>replay
+                  </button>
+                  <button class="btn btn--primary end__next" id="nextBtn" type="button">
+                    <span class="end__bar" aria-hidden="true"></span>
+                    <span>next: <b id="nextTitle"></b></span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5.5v13l9-6.5zM17 5v14"/></svg>
+                  </button>
+                </div>
+                <button class="end__cancel" id="cancelNext" type="button">stay here</button>
+              </div>
+            </div>
+
+            <!-- controls -->
+            <div class="ctrl" id="ctrl">
+              <div class="seek" id="seek" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0:00">
+                <div class="seek__track">
+                  <div class="seek__buf" id="seekBuf"></div>
+                  <div class="seek__fill" id="seekFill"></div>
+                  <div class="seek__marks" id="seekMarks"></div>
+                </div>
+                <div class="seek__thumb" id="seekThumb"></div>
+                <div class="seek__tip" id="seekTip"><b id="tipTime">0:00</b><span id="tipLabel"></span></div>
+              </div>
+
+              <div class="ctrl__row">
+                <button class="cb" id="playBtn" type="button" aria-label="Play (space)">
+                  <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14l11-7z"/></svg>
+                  <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+                </button>
+                <button class="cb cb--sm" id="prevBtn" type="button" aria-label="Previous demo (p)">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5.5v13l-9-6.5zM7 5v14"/></svg>
+                </button>
+                <button class="cb cb--sm" id="nextCtrl" type="button" aria-label="Next demo (n)">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5.5v13l9-6.5zM17 5v14"/></svg>
+                </button>
+
+                <div class="vol" id="vol">
+                  <button class="cb" id="muteBtn" type="button" aria-label="Mute (m)">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path class="i-spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/>
+                      <path class="i-w1" d="M15.2 9.2a4 4 0 0 1 0 5.6"/>
+                      <path class="i-w2" d="M17.8 6.6a7.6 7.6 0 0 1 0 10.8"/>
+                      <path class="i-x" d="M16 9.5l5 5M21 9.5l-5 5"/>
+                    </svg>
+                  </button>
+                  <input class="vol__range" id="volRange" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+                </div>
+
+                <span class="ctrl__time" id="time"><b id="tCur">0:00</b><i>/</i><span id="tDur">0:00</span></span>
+
+                <span class="ctrl__chap" id="ctrlChap"></span>
+
+                <button class="cb cb--txt" id="speedBtn" type="button" aria-label="Playback speed">1×</button>
+                <button class="cb" id="pipBtn" type="button" aria-label="Picture in picture" hidden>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><rect class="fillish" x="12" y="11.5" width="7" height="5.5" rx="1"/></svg>
+                </button>
+                <button class="cb" id="fsBtn" type="button" aria-label="Fullscreen (f)">
+                  <svg class="i-fs" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+                  <svg class="i-fsx" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- details for the selected demo -->
+        <article class="win demo-info" id="info" data-title="nvim — demo.md">
+          <div class="win__bar"><span class="win__path" id="infoPath">~/demos/demo.md</span><span class="win__app">nvim</span></div>
+          <div class="win__body info">
+            <div class="info__main">
+              <p class="proj__meta" id="infoTags"></p>
+              <h3 class="info__title" id="infoTitle">—</h3>
+              <p class="proj__pitch" id="infoSummary"></p>
+              <p class="chips" id="infoStack"></p>
+              <p class="proj__links" id="infoLinks"></p>
+            </div>
+            <div class="info__chapters" id="infoChapters" hidden>
+              <p class="md__h"><span class="tok-h">##</span> chapters</p>
+              <ol class="chap" id="chapList"></ol>
+            </div>
+          </div>
+        </article>
+
+        <!-- playlist -->
+        <aside class="win playlist" id="playlist" data-title="ls — ~/demos" aria-label="Demo playlist">
+          <div class="win__bar"><span class="win__path">~/demos</span><span class="win__app" id="plCount">ls</span></div>
+          <div class="win__body pl">
+            <p class="cmd"><span class="ps1">~/demos</span> ls</p>
+            <ol class="pl__list" id="plList"></ol>
+
+            <div class="keys" aria-label="Keyboard shortcuts">
+              <p class="keys__h">keys</p>
+              <dl>
+                <div><dt><kbd>space</kbd></dt><dd>play / pause</dd></div>
+                <div><dt><kbd>←</kbd><kbd>→</kbd></dt><dd>seek 5s</dd></div>
+                <div><dt><kbd>9</kbd> <kbd>0</kbd></dt><dd>volume</dd></div>
+                <div><dt><kbd>f</kbd> <kbd>m</kbd></dt><dd>fullscreen · mute</dd></div>
+                <div><dt><kbd>j</kbd> <kbd>l</kbd></dt><dd>seek 10s</dd></div>
+                <div><dt><kbd>n</kbd> <kbd>p</kbd></dt><dd>next · previous</dd></div>
+                <div><dt><kbd>[</kbd> <kbd>]</kbd></dt><dd>speed</dd></div>
+              </dl>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 Sadeq Odeh</span>
+    <a href="index.html">← back to ~</a>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script src="demos.js" defer></script>
+</body>
+</html>
