@@ -1,364 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sadeq Odeh — Full-stack Developer</title>
-  <meta name="description" content="Sadeq Odeh — full-stack developer in Amman, Jordan. ASP.NET Core, React, TypeScript, PostgreSQL, and C++ systems work.">
-  <meta property="og:title" content="Sadeq Odeh — Full-stack Developer">
-  <meta property="og:description" content="Full-stack developer in Amman. .NET and React by day, C++ and Linux internals when the problem needs it.">
-  <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0b0c0a">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23121410'/%3E%3Cpath d='M8 10l6 6-6 6' stroke='%23c5f04a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 23h8' stroke='%23e4e1d6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sadeq Portfolio</title>
+        <link rel="stylesheet" href="style.css" />
 
-  <a class="skip" href="#ws-projects">Skip to projects</a>
-
-  <!-- ───────── status bar ───────── -->
-  <header class="bar" role="banner">
-    <nav class="bar__ws" aria-label="Sections">
-      <a href="#ws-home" data-ws="1" class="is-active"><span>1</span><em>~</em></a>
-      <a href="#ws-projects" data-ws="2"><span>2</span><em>projects</em></a>
-      <a href="#ws-log" data-ws="3"><span>3</span><em>log</em></a>
-      <a href="#ws-stack" data-ws="4"><span>4</span><em>stack</em></a>
-      <a href="#ws-contact" data-ws="5"><span>5</span><em>contact</em></a>
-      <a href="demos.html" data-ws="6"><span>6</span><em>demos</em></a>
-    </nav>
-    <div class="bar__title" id="barTitle" aria-hidden="true">kitty — sadeq@amman:~</div>
-    <div class="bar__right">
-      <span class="bar__hint" aria-hidden="true"><kbd>1</kbd>–<kbd>6</kbd> to switch</span>
-      <span class="bar__status"><i class="dot"></i>open to work</span>
-      <span class="bar__clock" id="clock" title="Local time in Amman">AMM --:--</span>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- ───────── 1 · home ───────── -->
-    <section class="ws ws--home" id="ws-home" data-ws="1" aria-label="Intro">
-      <div class="tiles tiles--home">
-
-        <article class="win win--term" data-title="kitty — sadeq@amman:~">
-          <div class="win__bar"><span class="win__path">sadeq@amman:~</span><span class="win__app">kitty</span></div>
-          <div class="win__body">
-            <p class="cmd"><span class="ps1">~</span> <span class="typed" data-type="whoami">whoami</span></p>
-
-            <h1 class="banner" aria-label="Sadeq Odeh">
-<pre aria-hidden="true" class="banner__a"><b>███████</b><i>╗ </i><b>█████</b><i>╗ </i><b>██████</b><i>╗ </i><b>███████</b><i>╗ </i><b>██████</b><i>╗</i>
-<b>██</b><i>╔════╝</i><b>██</b><i>╔══</i><b>██</b><i>╗</i><b>██</b><i>╔══</i><b>██</b><i>╗</i><b>██</b><i>╔════╝</i><b>██</b><i>╔═══</i><b>██</b><i>╗</i>
-<b>███████</b><i>╗</i><b>███████</b><i>║</i><b>██</b><i>║  </i><b>██</b><i>║</i><b>█████</b><i>╗  </i><b>██</b><i>║   </i><b>██</b><i>║</i>
-<i>╚════</i><b>██</b><i>║</i><b>██</b><i>╔══</i><b>██</b><i>║</i><b>██</b><i>║  </i><b>██</b><i>║</i><b>██</b><i>╔══╝  </i><b>██</b><i>║▄▄ </i><b>██</b><i>║</i>
-<b>███████</b><i>║</i><b>██</b><i>║  </i><b>██</b><i>║</i><b>██████</b><i>╔╝</i><b>███████</b><i>╗╚</i><b>██████</b><i>╔╝</i>
-<i>╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝ ╚══▀▀═╝</i></pre>
-<pre aria-hidden="true" class="banner__b"> <b>██████</b><i>╗ </i><b>██████</b><i>╗ </i><b>███████</b><i>╗</i><b>██</b><i>╗  </i><b>██</b><i>╗</i>
-<b>██</b><i>╔═══</i><b>██</b><i>╗</i><b>██</b><i>╔══</i><b>██</b><i>╗</i><b>██</b><i>╔════╝</i><b>██</b><i>║  </i><b>██</b><i>║</i>
-<b>██</b><i>║   </i><b>██</b><i>║</i><b>██</b><i>║  </i><b>██</b><i>║</i><b>█████</b><i>╗  </i><b>███████</b><i>║</i>
-<b>██</b><i>║   </i><b>██</b><i>║</i><b>██</b><i>║  </i><b>██</b><i>║</i><b>██</b><i>╔══╝  </i><b>██</b><i>╔══</i><b>██</b><i>║</i>
-<i>╚</i><b>██████</b><i>╔╝</i><b>██████</b><i>╔╝</i><b>███████</b><i>╗</i><b>██</b><i>║  </i><b>██</b><i>║</i>
-<i> ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝</i></pre>
-            </h1>
-
-            <p class="lede">Full-stack developer in Amman. I ship web and mobile apps with <b>ASP.NET Core</b>, <b>React</b> and <b>PostgreSQL</b> — and drop down to <b>C++</b> and Linux internals when a problem needs it.</p>
-
-            <p class="cmd"><span class="ps1">~</span> fetch</p>
-            <dl class="fetch">
-              <div><dt>role</dt><dd>full-stack developer</dd></div>
-              <div><dt>backend</dt><dd>C# · ASP.NET Core · .NET 8 · Express</dd></div>
-              <div><dt>frontend</dt><dd>React · TypeScript · React Native</dd></div>
-              <div><dt>data</dt><dd>PostgreSQL · Supabase · Firebase</dd></div>
-              <div><dt>systems</dt><dd>C++ · C · Linux (NixOS daily)</dd></div>
-              <div><dt>edu</dt><dd>B.Sc. Computer Science, HTU — Feb 2027</dd></div>
-              <div><dt>locale</dt><dd>ar_JO (native) · en_US (fluent)</dd></div>
-              <div><dt>uptime</dt><dd>shipping since 2022</dd></div>
-            </dl>
-            <div class="swatches" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-
-            <div class="actions">
-              <a class="btn btn--primary" href="#ws-projects">./projects</a>
-              <a class="btn" href="demos.html">mpv demos/</a>
-              <a class="btn" href="Sadeq_Odeh_Resume_2026.pdf" target="_blank" rel="noopener">cat resume.pdf</a>
-              <a class="btn" href="mailto:sadeq_odeh@outlook.com">mail sadeq</a>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Redaction+50:ital,wght@0,400;0,700;1,400&family=Share+Tech&family=Unkempt:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="topbar">
+            <button>Articles</button>
+            <button>My Stuff</button>
+        </div>
+        <div class="main">
+            <div class="main-content">
+                <h1 class="title">Hi, I am Sadeq</h1>
+                <p class="subtitle">
+                    Trying my best to be a full-stack developer and system
+                    engineer
+                </p>
+                <p>What I'm doing right now</p>
+                <ul>
+                    <li>Working as a Software Engineer at Delv</li>
+                    <li>Making my Graduation project with my classmates</li>
+                    <li>Learning Go</li>
+                    <li>
+                        (trying) to remake Zyro browser with an actual framework
+                        (probably chromium)
+                    </li>
+                </ul>
             </div>
-            <p class="cmd cmd--idle"><span class="ps1">~</span> <span class="cursor" aria-hidden="true"></span></p>
-          </div>
-        </article>
 
-        <div class="stack-col">
-          <article class="win" data-title="nvim — now.md">
-            <div class="win__bar"><span class="win__path">~/now.md</span><span class="win__app">nvim</span></div>
-            <div class="win__body md">
-              <p class="md__h"><span class="tok-h">#</span> now <span class="muted">— oct 2026</span></p>
-              <ul class="md__list">
-                <li>Building my graduation project: AI that reads Arabic + English transport documents.</li>
-                <li>Rewriting <a href="#p-zyro">Zyro</a> on the Chromium Embedded Framework.</li>
-                <li>Looking for <b>full-stack / backend</b> roles — in Amman, remote, or relocating.</li>
-              </ul>
+            <div main-btns>
+                <button>Check out my stuff</button>
+                <button>Get in touch</button>
             </div>
-          </article>
-
-          <article class="win" data-title="links — ~/.links">
-            <div class="win__bar"><span class="win__path">~/.links</span><span class="win__app">ls</span></div>
-            <div class="win__body">
-              <ul class="links">
-                <li><a href="https://github.com/sardeq" target="_blank" rel="noopener"><span class="lk">github</span><span class="lv">sardeq</span><span class="arr">↗</span></a></li>
-                <li><a href="https://www.linkedin.com/in/sadeq-odeh" target="_blank" rel="noopener"><span class="lk">linkedin</span><span class="lv">sadeqodeh</span><span class="arr">↗</span></a></li>
-                <li><a href="mailto:sadeq_odeh@outlook.com"><span class="lk">mail</span><span class="lv">sadeq_odeh@outlook.com</span><span class="arr">↗</span></a></li>
-                <li><a href="Sadeq_Odeh_Resume_2026.pdf" target="_blank" rel="noopener"><span class="lk">resume</span><span class="lv">resume.pdf</span><span class="arr">↓</span></a></li>
-              </ul>
-            </div>
-          </article>
         </div>
 
-      </div>
-    </section>
+        <div class="socials">
+            <a
+                href="https://github.com/sardeq"
+                target="_blank"
+                class="social-box"
+            >
+                <img src="Images/GitHub_Invertocat_White.png" />
+                <p>Github</p>
+            </a>
+            <a
+                href="https://www.linkedin.com/in/sadeq-odeh/"
+                target="_blank"
+                class="social-box"
+            >
+                <img src="Images/InBug-White.png" />
+                <p>LinkedIn</p>
+            </a>
+            <a href="https://x.com/sadeqlo" target="_blank" class="social-box">
+                <img src="Images/icons8-x-logo-50.png" />
+                <p>Twitter?</p>
+            </a>
+        </div>
+    </body>
 
-    <!-- ───────── 2 · projects ───────── -->
-    <section class="ws" id="ws-projects" data-ws="2" aria-labelledby="h-projects">
-      <h2 class="ws__label" id="h-projects"><span>2</span> ~/projects</h2>
-      <div class="tiles tiles--projects">
+    <button>my linux setup</button>
 
-        <article class="win proj proj--wide" id="p-zyro" data-title="nvim — zyro/README.md">
-          <div class="win__bar"><span class="win__path">~/projects/zyro/README.md</span><span class="win__app">nvim</span></div>
-          <div class="win__body proj__body">
-            <div class="proj__text">
-              <p class="proj__meta"><span class="tag tag--warn">v1 archived</span><span class="tag tag--ok">v2 in progress</span></p>
-              <h3>Zyro Browser</h3>
-              <p class="proj__pitch">A desktop web browser written from scratch in C++. Version one ran on WebKitGTK with a custom HTML/CSS interface — and showed me exactly where a single-process design runs out of road. Version two is a rebuild on the Chromium Embedded Framework.</p>
-              <ul class="proj__points">
-                <li>Multi-process architecture, built with CMake</li>
-                <li>CEF views embedded in a GTK3 window</li>
-                <li>V8 IPC bridge between the browser UI and native code</li>
-                <li>Network request interception</li>
-              </ul>
-              <p class="chips"><span>C++</span><span>CEF</span><span>WebKitGTK</span><span>GTK3</span><span>V8</span><span>CMake</span></p>
-              <p class="proj__links"><a href="demos.html#zyro">watch demo ▶</a><a href="https://github.com/sardeq/Zyro-Browser-old" target="_blank" rel="noopener">source (v1) ↗</a></p>
-            </div>
-            <figure class="shot">
-              <img src="zyro_logo.png" alt="Zyro Browser new-tab page showing a search box and live CPU and RAM usage widgets" loading="lazy" width="1890" height="993">
-              <figcaption>zyro — new tab, with live CPU / RAM readout</figcaption>
-            </figure>
-          </div>
-        </article>
-
-        <article class="win proj" id="p-boombx" data-title="nvim — boombx/README.md">
-          <div class="win__bar"><span class="win__path">~/projects/boombx/README.md</span><span class="win__app">nvim</span></div>
-          <div class="win__body">
-            <p class="proj__meta"><span class="tag">desktop · audio</span></p>
-            <h3>BoomBx</h3>
-            <p class="proj__pitch">A soundboard and audio router. It plays clips through a virtual microphone, so they land in any voice chat or call.</p>
-            <ul class="proj__points">
-              <li>Low-latency WASAPI playback</li>
-              <li>Virtual mic via VB-Cable</li>
-              <li>Audio format conversion and hot-plug device handling</li>
-              <li>MVVM UI in AvaloniaUI</li>
-            </ul>
-            <p class="chips"><span>C#</span><span>.NET 8</span><span>AvaloniaUI</span><span>WASAPI</span></p>
-            <p class="proj__links"><a href="demos.html#boombx">demo ▶</a><a href="https://github.com/sardeq/BoomBx" target="_blank" rel="noopener">source ↗</a></p>
-          </div>
-        </article>
-
-        <article class="win proj" id="p-grad" data-title="nvim — graduation/README.md">
-          <div class="win__bar"><span class="win__path">~/projects/graduation/README.md</span><span class="win__app">nvim</span></div>
-          <div class="win__body">
-            <p class="proj__meta"><span class="tag tag--ok">in progress · 2026–27</span></p>
-            <h3>Transport Document Digitization</h3>
-            <p class="proj__pitch">My graduation project: an AI platform that reads transport documents in Arabic and English and turns them into structured, searchable data.</p>
-            <ul class="proj__points">
-              <li>OCR for bilingual, mixed-direction documents</li>
-              <li>Team of three — two on the models, me on the full stack around them</li>
-            </ul>
-            <p class="chips"><span>AI / OCR</span><span>Arabic + English</span><span>full-stack</span></p>
-            <p class="proj__links"><span class="muted">private — in development</span></p>
-          </div>
-        </article>
-
-        <article class="win proj" id="p-workmint" data-title="nvim — workmint/README.md">
-          <div class="win__bar"><span class="win__path">~/projects/workmint/README.md</span><span class="win__app">nvim</span></div>
-          <div class="win__body">
-            <p class="proj__meta"><span class="tag">web · marketplace</span></p>
-            <h3>Workmint</h3>
-            <p class="proj__pitch">A freelance marketplace that covers the whole job: freelancers list services, clients order, admins approve — with revisions and escrow payments built in.</p>
-            <ul class="proj__points">
-              <li>Three roles: admin, freelancer, client</li>
-              <li>Escrow calculator with live currency conversion</li>
-              <li>No mock data — every screen reads from PostgreSQL</li>
-            </ul>
-            <p class="chips"><span>React</span><span>React Router</span><span>Express</span><span>PostgreSQL</span></p>
-            <p class="proj__links"><a href="demos.html#workmint">demo ▶</a><a href="https://github.com/sardeq/workmint-frontend" target="_blank" rel="noopener">frontend ↗</a><a href="https://github.com/sardeq/workmint-backend" target="_blank" rel="noopener">backend ↗</a></p>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ───────── 3 · log ───────── -->
-    <section class="ws" id="ws-log" data-ws="3" aria-labelledby="h-log">
-      <h2 class="ws__label" id="h-log"><span>3</span> git log --graph</h2>
-      <div class="tiles">
-        <article class="win" data-title="git — log --graph career">
-          <div class="win__bar"><span class="win__path">~/career</span><span class="win__app">git log</span></div>
-          <div class="win__body">
-            <p class="cmd"><span class="ps1">~/career</span> git log --graph --oneline <span class="muted">main community</span></p>
-            <ol class="log">
-              <li class="log__item log__item--head">
-                <span class="log__hash">a3f9c21</span>
-                <span class="log__refs"><span class="ref ref--head">HEAD → main</span></span>
-                <span class="log__date">2025 — 2026</span>
-                <h3 class="log__title">University Registration System <span class="muted">· contract</span></h3>
-                <p class="log__msg">Registration platform for a university, built under contract. Supabase backend with AI-assisted features.</p>
-                <p class="log__links"><a href="https://github.com/sardeq/AJU-RegSystem" target="_blank" rel="noopener">repo ↗</a> · <a href="demos.html#regsystem">demo ▶</a></p>
-              </li>
-              <li class="log__item">
-                <span class="log__hash">7be04d8</span>
-                <span class="log__date">02/2025 — 10/2025</span>
-                <h3 class="log__title">Product Development Trainee <span class="muted">· ITG, Amman</span></h3>
-                <p class="log__msg">Built, tested and debugged ASP.NET applications across Web Forms, MVC and .NET Core; Web APIs and services; data access with ADO.NET and Entity Framework.</p>
-              </li>
-              <li class="log__item">
-                <span class="log__hash">c41e6a0</span>
-                <span class="log__date">10/2024 — 12/2024</span>
-                <h3 class="log__title">IndoArabi <span class="muted">· freelance</span></h3>
-                <p class="log__msg">Arabic-learning app for Indonesian students, built for an Arabic professor to publish. React Native (Expo, TypeScript) and Supabase.</p>
-              </li>
-              <li class="log__item">
-                <span class="log__hash">58d2f17</span>
-                <span class="log__refs"><span class="ref ref--tag">tag: crown-prince-award</span></span>
-                <span class="log__date">08/2024 — 12/2024</span>
-                <h3 class="log__title">Tawtheeq <span class="muted">· startup project</span></h3>
-                <p class="log__msg">Legal-debt management app connected with the Ministry of Justice. React Native, Expo and Supabase.</p>
-              </li>
-              <li class="log__item log__item--branch">
-                <span class="log__lane" aria-hidden="true"></span>
-                <span class="log__hash">e902b3c</span>
-                <span class="log__refs"><span class="ref ref--branch">community</span></span>
-                <span class="log__date">2024</span>
-                <h3 class="log__title">IEEEXtreme Ambassador &amp; Organizer · ACM Event Manager</h3>
-                <p class="log__msg">Organized the 24-hour IEEEXtreme competition in Jordan with the IEEE student club; ran events and technical training for ACM; volunteered with the IEEE Jordan Section.</p>
-              </li>
-              <li class="log__item">
-                <span class="log__hash">1d7a9e4</span>
-                <span class="log__date">06/2023 — 01/2024</span>
-                <h3 class="log__title">Game Developer <span class="muted">· Jam3et Games</span></h3>
-                <p class="log__msg">Idle card game for mobile in Unity (C#), planned and built with a team over eight months.</p>
-              </li>
-              <li class="log__item log__item--root">
-                <span class="log__hash">0f3b5c2</span>
-                <span class="log__refs"><span class="ref ref--tag">root commit</span></span>
-                <span class="log__date">08/2022 — 12/2022</span>
-                <h3 class="log__title">Mudawaneh <span class="muted">· freelance</span></h3>
-                <p class="log__msg">Library and reading site for a book author to share his work. JavaScript and Firebase.</p>
-                <p class="log__links"><a href="https://mudawaneh.web.app/" target="_blank" rel="noopener">live ↗</a></p>
-              </li>
-            </ol>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ───────── 4 · stack ───────── -->
-    <section class="ws" id="ws-stack" data-ws="4" aria-labelledby="h-stack">
-      <h2 class="ws__label" id="h-stack"><span>4</span> ~/.config</h2>
-      <div class="tiles tiles--stack">
-
-        <article class="win" data-title="nvim — stack.toml">
-          <div class="win__bar"><span class="win__path">~/.config/stack.toml</span><span class="win__app">nvim</span></div>
-          <div class="win__body">
-<pre class="code"><code><span class="ln"></span><span class="c"># what I reach for, roughly in order</span>
-<span class="ln"></span><span class="s">[backend]</span>
-<span class="ln"></span><span class="k">daily</span>    = [<span class="v">"C#"</span>, <span class="v">"ASP.NET Core"</span>, <span class="v">".NET 8"</span>, <span class="v">"Entity Framework"</span>]
-<span class="ln"></span><span class="k">also</span>     = [<span class="v">"Node.js"</span>, <span class="v">"Express"</span>, <span class="v">"ADO.NET"</span>]
-<span class="ln"></span>
-<span class="ln"></span><span class="s">[frontend]</span>
-<span class="ln"></span><span class="k">web</span>      = [<span class="v">"React"</span>, <span class="v">"TypeScript"</span>, <span class="v">"JavaScript"</span>]
-<span class="ln"></span><span class="k">mobile</span>   = [<span class="v">"React Native"</span>, <span class="v">"Expo"</span>]
-<span class="ln"></span><span class="k">desktop</span>  = [<span class="v">"AvaloniaUI"</span>]
-<span class="ln"></span>
-<span class="ln"></span><span class="s">[data]</span>
-<span class="ln"></span><span class="k">sql</span>      = [<span class="v">"PostgreSQL"</span>, <span class="v">"Oracle PL/SQL"</span>]
-<span class="ln"></span><span class="k">platform</span> = [<span class="v">"Supabase"</span>, <span class="v">"Firebase"</span>]
-<span class="ln"></span>
-<span class="ln"></span><span class="s">[systems]</span>
-<span class="ln"></span><span class="k">lang</span>     = [<span class="v">"C++"</span>, <span class="v">"C"</span>]
-<span class="ln"></span><span class="k">topics</span>   = [<span class="v">"multi-process"</span>, <span class="v">"IPC"</span>, <span class="v">"threads"</span>, <span class="v">"sockets"</span>]
-<span class="ln"></span><span class="k">os</span>       = <span class="v">"NixOS"</span>  <span class="c"># daily driver, riced</span>
-<span class="ln"></span>
-<span class="ln"></span><span class="s">[elsewhere]</span>
-<span class="ln"></span><span class="k">games</span>    = [<span class="v">"Unity"</span>, <span class="v">"C#"</span>]
-<span class="ln"></span><span class="k">tools</span>    = [<span class="v">"Git"</span>, <span class="v">"CMake"</span>, <span class="v">"Linux"</span>]</code></pre>
-          </div>
-        </article>
-
-        <article class="win" data-title="nvim — education.md">
-          <div class="win__bar"><span class="win__path">~/education.md</span><span class="win__app">nvim</span></div>
-          <div class="win__body md">
-            <p class="md__h"><span class="tok-h">#</span> B.Sc. Computer Science</p>
-            <p>Al Hussein Technical University <span class="muted">(Pearson BTEC)</span><br><span class="muted">Amman · expected Feb 2027</span></p>
-            <p class="muted small">coursework → data structures &amp; algorithms, operating systems, systems analysis &amp; design, databases</p>
-
-            <p class="md__h"><span class="tok-h">##</span> certifications</p>
-            <ul class="md__list">
-              <li>Full-stack Development (React) <span class="muted">— HTU, 2023</span></li>
-              <li>Red Hat Application Development I: Programming in Java <span class="muted">— 2024</span></li>
-            </ul>
-
-            <p class="md__h"><span class="tok-h">##</span> clubs</p>
-            <ul class="md__list">
-              <li>ACM — Event Manager &amp; Technical Trainer</li>
-              <li>IEEE — IEEEXtreme Ambassador</li>
-            </ul>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ───────── 5 · contact ───────── -->
-    <section class="ws" id="ws-contact" data-ws="5" aria-labelledby="h-contact">
-      <h2 class="ws__label" id="h-contact"><span>5</span> contact</h2>
-      <div class="tiles tiles--contact">
-
-        <article class="win win--term" data-title="kitty — sh">
-          <div class="win__bar"><span class="win__path">sadeq@amman:~ — interactive</span><span class="win__app">sh</span></div>
-          <div class="win__body shell" id="shell">
-            <div class="shell__out" id="shellOut" aria-live="polite">
-              <p class="muted">zsh-ish 0.1 — type <b class="acc">help</b> and press enter. tab completes, ↑ recalls.</p>
-            </div>
-            <form class="shell__in" id="shellForm" autocomplete="off">
-              <label for="shellInput" class="ps1">~</label>
-              <input id="shellInput" type="text" spellcheck="false" autocapitalize="off" aria-label="Terminal command">
-            </form>
-          </div>
-        </article>
-
-        <article class="win win--hello" data-title="mail — new message">
-          <div class="win__bar"><span class="win__path">new message</span><span class="win__app">mail</span></div>
-          <div class="win__body">
-            <p class="hello">Hiring, building something, or just want to talk shop?</p>
-            <p class="muted">Email is the fastest way to reach me.</p>
-            <a class="btn btn--primary btn--big" href="mailto:sadeq_odeh@outlook.com">sadeq_odeh@outlook.com</a>
-            <p class="actions actions--tight">
-              <a class="btn" href="https://www.linkedin.com/in/sadeq-odeh" target="_blank" rel="noopener">linkedin ↗</a>
-              <a class="btn" href="https://github.com/sardeq" target="_blank" rel="noopener">github ↗</a>
-              <a class="btn" href="Sadeq_Odeh_Resume_2026.pdf" target="_blank" rel="noopener">resume ↓</a>
-            </p>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="foot">
-    <span>© 2026 Sadeq Odeh</span>
-    <a href="https://github.com/sardeq/Portfolio" target="_blank" rel="noopener">view source ↗</a>
-  </footer>
-
-  <script src="script.js" defer></script>
-</body>
+    <footer>
+        <p>meaningful message here</p>
+    </footer>
 </html>
