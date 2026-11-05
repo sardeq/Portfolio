@@ -48,7 +48,6 @@ button:hover {
 }
 
 .topbar {
-    background-color: var(--primary);
     width: 90%;
     padding: 15px 20px;
     border-radius: 10px;
@@ -67,7 +66,13 @@ button:hover {
 }
 
 .topbar button:hover {
-    background-color: rgba(255, 249, 239, 0.3);
+    text-decoration-line: underline;
+}
+
+.topbar button:hover::before {
+    content: "> ";
+    position: absolute;
+    left: -1px;
 }
 
 .main {
