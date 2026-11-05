@@ -60,6 +60,7 @@ button:hover {
 }
 
 .topbar button {
+    position: relative;
     background-color: transparent;
     color: var(--text);
     border-color: transparent;
@@ -193,4 +194,199 @@ footer {
     margin-top: 25px;
     color: var(--muted);
     text-align: center;
+}
+
+.page {
+    justify-content: flex-start;
+}
+
+.page-content {
+    width: min(100%, 850px);
+}
+
+.section-title {
+    font-family: "Share Tech", sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin: 50px 0 15px;
+    border-bottom: 2px dashed var(--primary);
+}
+
+/* my stuff */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--surface);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(61, 48, 39, 0.12);
+}
+
+.card h3 {
+    font-family: "Share Tech", sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin: 0;
+}
+
+.card p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.card video,
+.card img,
+.media-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: var(--background);
+}
+
+.card img.logo {
+    object-fit: contain;
+    padding: 20px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tags span {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+    padding: 2px 8px;
+}
+
+.card a,
+.article a {
+    color: var(--secondary);
+}
+
+.card a:hover,
+.article a:hover {
+    color: var(--accent);
+}
+
+.media-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--primary);
+    color: var(--muted);
+}
+
+.setup-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.setup-gallery img,
+.setup-gallery .media-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.setup-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+}
+
+/* articles */
+
+.article-list {
+    list-style: none;
+    padding: 0;
+}
+
+.article-list li {
+    border-bottom: 2px dashed var(--primary);
+    padding: 15px 0;
+}
+
+.article-list a {
+    font-family: "Share Tech", sans-serif;
+    font-size: 1.4rem;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.article-list a:hover {
+    text-decoration: underline;
+}
+
+.date {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 4px 0;
+}
+
+.article {
+    width: min(100%, 700px);
+    line-height: 1.8;
+}
+
+.article h2 {
+    font-family: "Share Tech", sans-serif;
+    font-weight: 400;
+    color: var(--accent);
+    margin-top: 35px;
+}
+
+.article pre {
+    background-color: var(--text);
+    color: var(--surface);
+    font-family: monospace;
+    font-weight: 400;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.article code {
+    font-family: monospace;
+    font-weight: 400;
+}
+
+.article blockquote {
+    margin: 0;
+    padding-left: 15px;
+    border-left: 4px solid var(--primary);
+    color: var(--secondary);
+}
+
+@media (max-width: 600px) {
+    .main {
+        padding: 25px 16px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
 }
