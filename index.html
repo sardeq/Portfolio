@@ -16,8 +16,8 @@
 
     <body>
         <div class="topbar">
-            <button>Articles</button>
-            <button>My Stuff</button>
+            <button onclick="window.open('articles.html')">Articles</button>
+            <button onclick="window.open('stuff.html')">My Stuff</button>
         </div>
 
         <div class="main">
@@ -43,8 +43,16 @@
             </div>
 
             <div class="main-btns">
-                <button>Check out my stuff</button>
-                <button>Get in touch</button>
+                <button onclick="window.open('stuff.html')">
+                    Check out my stuff
+                </button>
+                <button
+                    onclick="
+                        window.location.href = 'mailto:sadeqodeh@proton.me'
+                    "
+                >
+                    Get in touch
+                </button>
             </div>
         </div>
 
