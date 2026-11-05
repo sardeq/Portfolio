@@ -18,6 +18,8 @@ body {
     font-family: "Unkempt", cursive;
     font-weight: 700;
     background-color: var(--background);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140' fill='none' stroke='%23c7a06e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' opacity='0.35'><path d='M15 25 q6 -8 12 0 t12 0'/><circle cx='100' cy='30' r='6'/><path d='M30 95 l8 8 m0 -8 l-8 8'/><path d='M95 110 l7 -12 l7 12 z'/><path d='M65 65 l3 -3 m3 6 l3 -3'/></svg>");
+    background-attachment: fixed;
     color: var(--text);
 
     display: flex;
@@ -70,6 +72,23 @@ button:hover {
 
 .main {
     background-color: var(--surface);
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 48%,
+            rgba(139, 98, 69, 0.08) 49%,
+            rgba(139, 98, 69, 0.08) 51%,
+            transparent 52%
+        ),
+        linear-gradient(
+            -45deg,
+            transparent 48%,
+            rgba(139, 98, 69, 0.08) 49%,
+            rgba(139, 98, 69, 0.08) 51%,
+            transparent 52%
+        );
+    background-size: 40px 40px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,7 +102,6 @@ button:hover {
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(61, 48, 39, 0.12);
 }
-
 .main-content {
     width: min(100%, 650px);
 }
